@@ -1,38 +1,30 @@
 import { Component, HostBinding } from "@angular/core";
 
 @Component({
-  selector: "body",
+  selector: "main",
   template: `
-    <main>
-      <picture>
-        <source
-          [srcset]="img.sources.webp.src"
-          [type]="img.sources.webp.type"
-        />
-        <source [srcset]="img.sources.png.src" [type]="img.sources.png.type" />
-        <img
-          [src]="img.sources.png.src"
-          [width]="img.width"
-          [height]="img.height"
-          [alt]="img.alt"
-        />
-      </picture>
+    <picture>
+      <source [srcset]="img.sources.webp.src" [type]="img.sources.webp.type" />
+      <source [srcset]="img.sources.png.src" [type]="img.sources.png.type" />
+      <img
+        [src]="img.sources.png.src"
+        [width]="img.width"
+        [height]="img.height"
+        [alt]="img.alt"
+      />
+    </picture>
 
-      <p>
-        {{ p.content }}
-      </p>
+    <p>
+      {{ p.content }}
+    </p>
 
-      <video controls [width]="video.width" [poster]="video.poster">
-        <source
-          [src]="video.sources.webm.src"
-          [type]="video.sources.webm.type"
-        />
-        <source [src]="video.sources.mp4.src" [type]="video.sources.mp4.type" />
-        {{ video.content }}
-      </video>
+    <video controls [width]="video.width" [poster]="video.poster">
+      <source [src]="video.sources.webm.src" [type]="video.sources.webm.type" />
+      <source [src]="video.sources.mp4.src" [type]="video.sources.mp4.type" />
+      {{ video.content }}
+    </video>
 
-      <a [href]="a.href" [target]="a.target">{{ a.content }}</a>
-    </main>
+    <a [href]="a.href" [target]="a.target">{{ a.content }}</a>
   `,
 })
 export class AppComponent {
