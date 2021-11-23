@@ -16,6 +16,11 @@ body {
   text-align: center;
 }
 
+img,
+video {
+  max-width: 100%;
+}
+
 p {
   color: var(--white);
   margin: var(--gap) auto;
@@ -25,7 +30,6 @@ p {
 video {
   display: block;
   margin: var(--gap) auto;
-  max-width: 100%;
 }
 
 a {
