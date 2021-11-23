@@ -43,7 +43,7 @@ jobs:
 
       - name: Sync Build to S3 Bucket
         if: success()
-        run: aws s3 sync dist/everest s3://${bucket} --acl public-read --delete --cache-control max-age=604800
+        run: aws s3 sync dist/everest s3://${bucket}
         env:
           bucket: ${{ secrets.AWS_S3_BUCKET_NAME }}
 
