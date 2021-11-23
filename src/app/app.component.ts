@@ -10,7 +10,12 @@ import { Component } from "@angular/core";
           [type]="img.sources.webp.type"
         />
         <source [srcset]="img.sources.png.src" [type]="img.sources.png.type" />
-        <img [src]="img.sources.png.src" [width]="img.width" [alt]="img.alt" />
+        <img
+          [src]="img.sources.png.src"
+          [width]="img.width"
+          [height]="img.height"
+          [alt]="img.alt"
+        />
       </picture>
 
       <p>
@@ -35,11 +40,12 @@ export class AppComponent {
     seo: {
       title: "Everest 2021",
       description:
-        "Ullam laboriosam obcaecati dolorum illum aut quam vitae maxime tenetur explicabo ipsa voluptates quisquam est sit similique, ab rem, eveniet, placeat iusto?",
+        "Trek to the base camp of Mt. Everest, the world’s highest mountain, personally guided by me and my coach Dr. Jon Kedrowski.",
     },
     img: {
       width: 320,
-      alt: "Mike Posner branded Everest Guided Tour logo",
+      height: 320,
+      alt: "Trek To Everest Base Camp",
       sources: {
         webp: {
           src: "assets/trek-to-everest.webp",
