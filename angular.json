@@ -98,18 +98,6 @@
           },
           "defaultConfiguration": "development"
         },
-        "sync": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "command": "aws s3 sync dist/everest s3://{args.bucket} --acl public-read --delete --cache-control max-age=604800"
-          }
-        },
-        "invalidate": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "command": "aws cloudfront create-invalidation --distribution-id {args.id} --paths /index.html"
-          }
-        },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
