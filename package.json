@@ -6,8 +6,6 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "sync": "aws s3 sync dist/everest s3://$bucket --acl public-read --delete --cache-control max-age=604800",
-    "invalidate": "aws cloudfront create-invalidation --distribution-id $id --paths /index.html",
     "thumbnail": "ffmpeg -i src/assets/trek-to-everest.mp4 -ss 00:00:12.000 -vframes 1 src/assets/poster.png"
   },
   "private": true,
