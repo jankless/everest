@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Production
-      url: https:/d1uoehry94vn4i.cloudfront.net
+      url: https://d1uoehry94vn4i.cloudfront.net
     steps:
       - name: Checkout
         uses: actions/checkout@v2
