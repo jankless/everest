@@ -44,3 +44,10 @@ a {
 a:hover {
   background-color: var(--brand-light);
 }
+
+body:not(.webp) video {
+  background-image: url("assets/poster.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: cover;
+}

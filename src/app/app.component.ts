@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, HostBinding } from "@angular/core";
 
 @Component({
   selector: "body",
@@ -63,7 +63,7 @@ export class AppComponent {
     },
     video: {
       width: 640,
-      poster: "assets/poster.png",
+      poster: "assets/poster.webp",
       sources: {
         webm: {
           src: "assets/trek-to-everest.webm",
@@ -98,5 +98,15 @@ export class AppComponent {
   }
   get a() {
     return this.pageData.a;
+  }
+
+  @HostBinding("class.webp")
+  get isWebPSupported() {
+    const elem = document.createElement("canvas");
+    if (!!(elem.getContext && elem.getContext("2d"))) {
+      return elem.toDataURL("image/webp").indexOf("data:image/webp") == 0;
+    } else {
+      return false;
+    }
   }
 }

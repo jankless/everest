@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "thumbnail": "ffmpeg -i src/assets/trek-to-everest.mp4 -ss 00:00:12.000 -vframes 1 src/assets/poster.png"
+    "thumbnail": "ffmpeg -i src/assets/trek-to-everest.mp4 -ss 00:00:12.000 -vframes 1 src/assets/poster.webp"
   },
   "private": true,
   "dependencies": {
