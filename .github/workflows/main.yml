@@ -1,0 +1,54 @@
+name: Deploy
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: Production
+      url: https:/d1uoehry94vn4i.cloudfront.net
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Cache Dependencies
+        uses: actions/cache@v1
+        if: success()
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Build
+        run: npm run build
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: success()
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Sync Build to S3 Bucket
+        if: success()
+        run: npm run sync
+        env:
+          bucket: ${{ secrets.AWS_S3_BUCKET_NAME }}
+
+      - name: Invalidate CloudFront Distribution Cache
+        if: success()
+        run: npm run invalidate
+        env:
+          id: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
