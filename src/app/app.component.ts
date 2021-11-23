@@ -1,32 +1,96 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
+  selector: "body",
   template: `
-    <!--The content below is only a placeholder and can be replaced.-->
-    <div style="text-align:center" class="content">
-      <h1>
-        Welcome to {{title}}!
-      </h1>
-      <span style="display: block">{{ title }} app is running!</span>
-      <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-    </div>
-    <h2>Here are some links to help you start: </h2>
-    <ul>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-      </li>
-    </ul>
-    
+    <main style="text-align:center" class="content">
+      <picture>
+        <source
+          [srcset]="img.sources.webp.src"
+          [type]="img.sources.webp.type"
+        />
+        <source [srcset]="img.sources.png.src" [type]="img.sources.png.type" />
+        <img [src]="img.sources.png.src" [width]="img.width" [alt]="img.alt" />
+      </picture>
+
+      <p>
+        {{ p.content }}
+      </p>
+
+      <video controls [width]="video.width" [poster]="video.poster">
+        <source
+          [src]="video.sources.webm.src"
+          [type]="video.sources.webm.type"
+        />
+        <source [src]="video.sources.mp4.src" [type]="video.sources.mp4.type" />
+        {{ video.content }}
+      </video>
+
+      <a [href]="a.href" [target]="a.target">{{ a.content }}</a>
+    </main>
   `,
-  styles: []
 })
 export class AppComponent {
-  title = 'everest';
+  pageData = {
+    seo: {
+      title: "Everest 2021",
+      description:
+        "Ullam laboriosam obcaecati dolorum illum aut quam vitae maxime tenetur explicabo ipsa voluptates quisquam est sit similique, ab rem, eveniet, placeat iusto?",
+    },
+    img: {
+      width: 320,
+      alt: "Mike Posner branded Everest Guided Tour logo",
+      sources: {
+        webp: {
+          src: "assets/trek-to-everest.webp",
+          type: "image/webp",
+        },
+        png: {
+          src: "assets/trek-to-everest.png",
+          type: "image/png",
+        },
+      },
+    },
+    p: {
+      content:
+        "Trek to the base camp of Mt. Everest, the world’s highest mountain, personally guided by me and my coach Dr. Jon Kedrowski.",
+    },
+    video: {
+      width: 640,
+      poster: "assets/poster.png",
+      sources: {
+        webm: {
+          src: "assets/trek-to-everest.webm",
+          type: "video/webm",
+        },
+        mp4: {
+          src: "assets/trek-to-everest.mp4",
+          type: "video/mp4",
+        },
+      },
+      content: "Sorry, your browser doesn't support embedded videos.",
+    },
+    a: {
+      href: "https://gmfye3cd6yq.typeform.com/to/mggMEVxH",
+      target: "_blank",
+      content: "Sign Up",
+    },
+  };
+
+  get seo() {
+    return this.pageData.seo;
+  }
+
+  get img() {
+    return this.pageData.img;
+  }
+  get p() {
+    return this.pageData.p;
+  }
+  get video() {
+    return this.pageData.video;
+  }
+  get a() {
+    return this.pageData.a;
+  }
 }
