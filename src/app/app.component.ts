@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 @Component({
   selector: "body",
   template: `
-    <main style="text-align:center" class="content">
+    <main>
       <picture>
         <source
           [srcset]="img.sources.webp.src"
