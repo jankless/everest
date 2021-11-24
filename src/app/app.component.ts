@@ -71,7 +71,7 @@ export class AppComponent {
     a: {
       href: "https://gmfye3cd6yq.typeform.com/to/mggMEVxH",
       target: "_blank",
-      content: "Sign Up",
+      content: "Apply",
     },
   };
 
