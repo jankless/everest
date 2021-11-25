@@ -3,21 +3,30 @@
   --brand-dark: #1b4078;
   --brand-light: #88b7e9;
   --brand: #0071ce;
-  --gap: 4ch;
+  --lg-gap: 4ch;
+  --md-gap: 2ch;
+  --sm-gap: 1ch;
   --link-padding: 1ch 3ch;
   --white: #fff;
+  --radius: 1ch;
+  --stroke: 0.5ch;
+  --tracking: 0.25ch;
 }
 
 body {
   background-color: var(--brand);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  padding-bottom: var(--gap);
+  padding-bottom: var(--lg-gap);
   text-align: center;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 img {
-  margin: var(--gap) auto;
+  margin: var(--lg-gap) auto;
 }
 
 img,
@@ -35,20 +44,23 @@ p {
 
 video {
   display: block;
-  margin: var(--gap) auto;
+  margin: var(--lg-gap) auto;
 }
 
 a {
-  border-radius: 8px;
-  border: 4px dashed var(--brand-light);
+  border-radius: var(--radius);
+  border: var(--stroke) dashed var(--brand-light);
+  transition: background-color ease 250;
+}
+
+a.apply {
   color: var(--white);
   display: inline-block;
-  letter-spacing: 2px;
-  margin: var(--gap) auto;
+  letter-spacing: var(--tracking);
+  margin: var(--lg-gap) auto;
   padding: var(--link-padding);
   text-decoration: none;
   text-transform: uppercase;
-  transition: background-color ease 250;
 }
 
 a:hover {
@@ -60,4 +72,27 @@ body:not(.webp) video {
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: cover;
+}
+
+menu.social {
+  margin: 0;
+  padding: 0;
+  margin-top: calc(var(--lg-gap) * 4);
+}
+
+.social a {
+  --size: 3rem;
+  padding: var(--sm-gap);
+  margin: var(--sm-gap);
+  width: var(--size);
+  height: var(--size);
+  line-height: var(--size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.social a img {
+  margin: 0;
 }

@@ -24,7 +24,19 @@ import { Component, HostBinding } from "@angular/core";
       {{ video.content }}
     </video>
 
-    <a [href]="a.href" [target]="a.target">{{ a.content }}</a>
+    <a class="apply" [href]="a.href" [target]="a.target">{{ a.content }}</a>
+
+    <menu class="social">
+      <ng-container *ngFor="let link of social | keyvalue">
+        <a [href]="link.value.href" [target]="'_blank'">
+          <img
+            [width]="link.value.width"
+            [src]="link.value.icon"
+            [alt]="link.key"
+          />
+        </a>
+      </ng-container>
+    </menu>
   `,
 })
 export class AppComponent {
@@ -73,6 +85,33 @@ export class AppComponent {
       target: "_blank",
       content: "Apply",
     },
+    social: {
+      twitter: {
+        href: "http://www.twitter.com/mikeposner",
+        icon: "assets/twitter.svg",
+        width: 30,
+      },
+      facebook: {
+        href: "http://www.facebook.com/therealmikeposner",
+        icon: "assets/facebook.svg",
+        width: 30,
+      },
+      instagram: {
+        href: "http://www.instagram.com/mikeposner",
+        icon: "assets/instagram.svg",
+        width: 30,
+      },
+      tiktok: {
+        href: "http://www.tiktok.com/@mikeposner",
+        icon: "assets/tiktok.svg",
+        width: 30,
+      },
+      youtube: {
+        href: "http://www.youtube.com/mikeposner",
+        icon: "assets/youtube.svg",
+        width: 30,
+      },
+    },
   };
 
   get seo() {
@@ -90,6 +129,9 @@ export class AppComponent {
   }
   get a() {
     return this.pageData.a;
+  }
+  get social() {
+    return this.pageData.social;
   }
 
   @HostBinding("class.webp")
