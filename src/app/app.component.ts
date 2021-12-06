@@ -89,27 +89,27 @@ export class AppComponent {
       twitter: {
         href: "http://www.twitter.com/mikeposner",
         icon: "assets/twitter.svg",
-        width: 30,
+        width: 24,
       },
       facebook: {
         href: "http://www.facebook.com/therealmikeposner",
         icon: "assets/facebook.svg",
-        width: 30,
+        width: 24,
       },
       instagram: {
         href: "http://www.instagram.com/mikeposner",
         icon: "assets/instagram.svg",
-        width: 30,
+        width: 24,
       },
       tiktok: {
         href: "http://www.tiktok.com/@mikeposner",
         icon: "assets/tiktok.svg",
-        width: 30,
+        width: 24,
       },
       youtube: {
         href: "http://www.youtube.com/mikeposner",
         icon: "assets/youtube.svg",
-        width: 30,
+        width: 24,
       },
     },
   };
