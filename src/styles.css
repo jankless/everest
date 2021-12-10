@@ -58,7 +58,7 @@ p {
 
 video {
   display: block;
-  margin: var(--lg-gap) auto;
+  margin: 0 auto;
 }
 
 a {
