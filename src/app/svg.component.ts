@@ -104,11 +104,7 @@ import { Component, Input, OnInit } from "@angular/core";
     </ng-container>
   `,
 })
-export class SvgComponent implements OnInit {
-  @Input() icon: string = "youtube";
+export class SvgComponent {
+  @Input() icon!: string;
   constructor() {}
-
-  ngOnInit() {
-    console.log(this.icon);
-  }
 }
