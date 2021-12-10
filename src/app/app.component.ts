@@ -15,8 +15,15 @@ import { Component, HostBinding } from "@angular/core";
     </picture>
 
     <p>
-      {{ p.content }}
+      <ng-container *ngFor="let c of p.content">
+        <span>
+          {{ c }}
+        </span>
+        <br />
+      </ng-container>
     </p>
+
+    <a class="apply" [href]="a.href" [target]="a.target">{{ a.content }}</a>
 
     <video controls [width]="video.width" [poster]="video.poster">
       <source [src]="video.sources.webm.src" [type]="video.sources.webm.type" />
@@ -24,16 +31,15 @@ import { Component, HostBinding } from "@angular/core";
       {{ video.content }}
     </video>
 
-    <a class="apply" [href]="a.href" [target]="a.target">{{ a.content }}</a>
-
     <menu class="social">
       <ng-container *ngFor="let link of social | keyvalue">
         <a [href]="link.value.href" [target]="'_blank'">
-          <img
+          <!-- <img
             [width]="link.value.width"
             [src]="link.value.icon"
             [alt]="link.key"
-          />
+          /> -->
+          <svg [icon]="link.value.icon" [style.width]="link.value.width"></svg>
         </a>
       </ng-container>
     </menu>
@@ -62,8 +68,11 @@ export class AppComponent {
       },
     },
     p: {
-      content:
-        "Trek to the base camp of Mt. Everest, the world’s highest mountain, personally guided by me and my coach Dr. Jon Kedrowski.",
+      content: [
+        "Trek to the base camp of Mt. Everest, ",
+        "the world’s highest mountain, personally guided ",
+        "by me and my coach Dr. Jon Kedrowski.",
+      ],
     },
     video: {
       width: 640,
@@ -88,27 +97,27 @@ export class AppComponent {
     social: {
       twitter: {
         href: "http://www.twitter.com/mikeposner",
-        icon: "assets/twitter.svg",
+        icon: "twitter",
         width: 24,
       },
       facebook: {
         href: "http://www.facebook.com/therealmikeposner",
-        icon: "assets/facebook.svg",
+        icon: "facebook",
         width: 24,
       },
       instagram: {
         href: "http://www.instagram.com/mikeposner",
-        icon: "assets/instagram.svg",
+        icon: "instagram",
         width: 24,
       },
       tiktok: {
         href: "http://www.tiktok.com/@mikeposner",
-        icon: "assets/tiktok.svg",
+        icon: "tiktok",
         width: 24,
       },
       youtube: {
         href: "http://www.youtube.com/mikeposner",
-        icon: "assets/youtube.svg",
+        icon: "youtube",
         width: 24,
       },
     },

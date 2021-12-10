@@ -1,23 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
 
 :root {
   --black: #000;
   --brand-dark: #1b4078;
-  --brand-light: #88b7e9;
   --brand: #0071ce;
   --lg-gap: 4ch;
   --md-gap: 1ch;
   --sm-gap: 0.5ch;
-  --link-padding: 1ch 3ch;
+  --link-padding: 1ch 2ch;
   --white: #fff;
-  --radius: 1ch;
-  --stroke: 0.5ch;
+  --radius: 1.5ch;
+  --stroke: 0.25ch;
   --tracking: 0.25ch;
 }
 
 body {
   background-color: var(--brand);
-  font-family: "Playfair Display SC", serif;
+  font-family: "Lora", serif;
   padding-bottom: var(--lg-gap);
   text-align: center;
 }
@@ -37,10 +36,18 @@ video {
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--white);
   margin: 0 auto;
   max-width: 640px;
+  line-height: 32px;
+  text-align: center;
+}
+
+@media (max-width: 320px) {
+  p {
+    font-size: 13px;
+  }
 }
 
 @media (min-width: 640px) {
@@ -56,7 +63,7 @@ video {
 
 a {
   border-radius: var(--radius);
-  border: var(--stroke) dashed var(--brand-light);
+  border: var(--stroke) solid var(--white);
   transition: background-color ease 250;
 }
 
@@ -71,7 +78,8 @@ a.apply {
 }
 
 a:hover {
-  background-color: var(--brand-light);
+  background-color: var(--white);
+  color: var(--brand);
 }
 
 menu.social {
@@ -93,6 +101,6 @@ menu.social {
   border-radius: 50%;
 }
 
-.social a img {
-  margin: 0;
+.social a:hover svg {
+  fill: var(--brand);
 }
