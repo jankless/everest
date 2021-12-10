@@ -59,6 +59,8 @@ p {
 video {
   display: block;
   margin: 0 auto;
+  border: var(--stroke) solid var(--white);
+  border-radius: var(--radius);
 }
 
 a {

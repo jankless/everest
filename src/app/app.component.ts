@@ -76,7 +76,7 @@ export class AppComponent {
     },
     video: {
       width: 640,
-      poster: "assets/poster.webp",
+      poster: "assets/cropped-poster.webp",
       sources: {
         webm: {
           src: "assets/trek-to-everest.webm",
