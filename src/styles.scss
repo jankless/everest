@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+
+:root {
+  --black: #000;
+  --brand-dark: #1b4078;
+  --brand: #0071ce;
+  --lg-gap: 4ch;
+  --md-gap: 1ch;
+  --sm-gap: 0.5ch;
+  --link-padding: 1ch 2ch;
+  --white: #fff;
+  --radius: 1.5ch;
+  --stroke: 0.25ch;
+  --tracking: 0.25ch;
+}
+
+body {
+  background-color: var(--brand);
+  font-family: "Lora", serif;
+  padding-bottom: var(--lg-gap);
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  margin: var(--lg-gap) auto;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  font-size: 16px;
+  color: var(--white);
+  margin: 0 auto;
+  max-width: 640px;
+  line-height: 32px;
+  text-align: center;
+
+  @media (max-width: 320px) {
+    font-size: 13px;
+  }
+
+  @media (min-width: 640px) {
+    font-size: 22px;
+  }
+}
+
+video {
+  display: block;
+  margin: 0 auto;
+}
+
+a {
+  border-radius: var(--radius);
+  border: var(--stroke) solid var(--white);
+  transition: background-color ease 250;
+
+  &.apply {
+    color: var(--white);
+    display: inline-block;
+    letter-spacing: var(--tracking);
+    margin: var(--lg-gap) auto;
+    padding: var(--link-padding);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    background-color: var(--white);
+    color: var(--brand);
+  }
+}
+
+menu.social {
+  margin: 0;
+  padding: 0;
+  margin-top: calc(var(--lg-gap) * 4);
+
+  & a {
+    --size: 3rem;
+    padding: var(--sm-gap);
+    margin: var(--md-gap);
+    width: var(--size);
+    height: var(--size);
+    line-height: var(--size);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    &:hover svg {
+      fill: var(--brand);
+    }
+  }
+}
+
+dialog {
+  position: fixed;
+  z-index: 1;
+  background: transparent;
+  top: 0;
+  left: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background-color: rgba(40, 40, 40, 0.1);
+    backdrop-filter: blur(4px) brightness(80%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  button.close {
+    width: 100px;
+    height: 40px;
+    margin-bottom: 1ch;
+  }
+
+  &:not([open]) {
+    display: none;
+  }
+}

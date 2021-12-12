@@ -25,6 +25,17 @@ import { Component, HostBinding } from "@angular/core";
 
     <a class="apply" [href]="a.href" [target]="a.target">{{ a.content }}</a>
 
+    <dialog mp open focusTrap>
+      <video controls [width]="video.width" [poster]="video.poster">
+        <source
+          [src]="video.sources.webm.src"
+          [type]="video.sources.webm.type"
+        />
+        <source [src]="video.sources.mp4.src" [type]="video.sources.mp4.type" />
+        {{ video.content }}
+      </video>
+    </dialog>
+
     <video controls [width]="video.width" [poster]="video.poster">
       <source [src]="video.sources.webm.src" [type]="video.sources.webm.type" />
       <source [src]="video.sources.mp4.src" [type]="video.sources.mp4.type" />
@@ -34,11 +45,6 @@ import { Component, HostBinding } from "@angular/core";
     <menu class="social">
       <ng-container *ngFor="let link of social | keyvalue">
         <a [href]="link.value.href" [target]="'_blank'">
-          <!-- <img
-            [width]="link.value.width"
-            [src]="link.value.icon"
-            [alt]="link.key"
-          /> -->
           <svg [icon]="link.value.icon" [style.width]="link.value.width"></svg>
         </a>
       </ng-container>
@@ -141,15 +147,5 @@ export class AppComponent {
   }
   get social() {
     return this.pageData.social;
-  }
-
-  @HostBinding("class.webp")
-  get isWebPSupported() {
-    const elem = document.createElement("canvas");
-    if (!!(elem.getContext && elem.getContext("2d"))) {
-      return elem.toDataURL("image/webp").indexOf("data:image/webp") == 0;
-    } else {
-      return false;
-    }
   }
 }
