@@ -13,7 +13,7 @@ import { Subscription, fromEvent, filter } from "rxjs";
   `,
 })
 export class DialogComponent implements OnInit {
-  @HostBinding("open") open = true;
+  @HostBinding() open = true;
   private destroy: Subscription[] = [];
   private name = "DIALOG";
   private windowClicks = fromEvent(this.document, "click").pipe(
