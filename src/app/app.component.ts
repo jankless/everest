@@ -36,12 +36,6 @@ import { Component, HostBinding } from "@angular/core";
       </video>
     </dialog>
 
-    <video controls [width]="video.width" [poster]="video.poster">
-      <source [src]="video.sources.webm.src" [type]="video.sources.webm.type" />
-      <source [src]="video.sources.mp4.src" [type]="video.sources.mp4.type" />
-      {{ video.content }}
-    </video>
-
     <menu class="social">
       <ng-container *ngFor="let link of social | keyvalue">
         <a [href]="link.value.href" [target]="'_blank'">

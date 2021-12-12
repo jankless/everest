@@ -2,11 +2,12 @@ import { DOCUMENT } from "@angular/common";
 import { Component, HostBinding, Inject, OnInit } from "@angular/core";
 import { AfterViewInit, Directive, ElementRef, Renderer2 } from "@angular/core";
 import { Subscription, fromEvent, filter } from "rxjs";
+import dialogPolyfill from "dialog-polyfill";
 
 @Component({
   selector: "dialog[mp]",
   template: `
-    <button (click)="close($event)" class="close" type="button">CLOSE</button>
+    <button (click)="close()" class="close" type="button">CLOSE</button>
     <ng-content></ng-content>
   `,
 })
@@ -18,17 +19,19 @@ export class DialogComponent implements OnInit {
     filter(({ target }) => (target as any).nodeName === this.name)
   );
 
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private el: ElementRef
+  ) {}
 
   ngOnInit() {
+    dialogPolyfill.registerDialog(this.el.nativeElement);
     this.destroy.push(this.windowClicks.subscribe(this.close.bind(this)));
     this.document.body.style.overflow = "hidden";
   }
 
-  close(event: any) {
+  close() {
     this.open = false;
-    console.log(event);
-    alert("close");
     this.document.body.style.overflow = "initial";
   }
 
