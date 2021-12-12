@@ -113,6 +113,7 @@ dialog {
   justify-content: center;
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
   align-items: center;
 
   &:before {
@@ -124,6 +125,7 @@ dialog {
     top: 0;
     left: 0;
     width: 100%;
+    box-sizing: border-box;
     height: 100%;
   }
 
