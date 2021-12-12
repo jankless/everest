@@ -131,6 +131,9 @@ dialog {
     width: 100px;
     height: 40px;
     margin-bottom: 1ch;
+    color: var(--black);
+    border-radius: 4px;
+    border: 1px solid var(--brand-dark);
   }
 
   &:not([open]) {
