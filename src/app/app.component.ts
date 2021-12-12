@@ -25,7 +25,7 @@ import { Component, HostBinding } from "@angular/core";
 
     <a class="apply" [href]="a.href" [target]="a.target">{{ a.content }}</a>
 
-    <dialog mp open focusTrap>
+    <dialog mp focusTrap>
       <video controls [width]="video.width" [poster]="video.poster">
         <source
           [src]="video.sources.webm.src"

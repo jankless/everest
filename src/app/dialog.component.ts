@@ -6,9 +6,7 @@ import { Subscription, fromEvent, filter } from "rxjs";
 @Component({
   selector: "dialog[mp]",
   template: `
-    <button (click)="close()" class="close" type="button">
-      <small>CLOSE</small>
-    </button>
+    <button (click)="close($event)" class="close" type="button">CLOSE</button>
     <ng-content></ng-content>
   `,
 })
@@ -27,8 +25,10 @@ export class DialogComponent implements OnInit {
     this.document.body.style.overflow = "hidden";
   }
 
-  close() {
+  close(event: any) {
     this.open = false;
+    console.log(event);
+    alert("close");
     this.document.body.style.overflow = "initial";
   }
 
