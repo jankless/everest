@@ -7,8 +7,11 @@ import dialogPolyfill from "dialog-polyfill";
 @Component({
   selector: "dialog[mp]",
   template: `
-    <button (click)="close()" class="close" type="button">CLOSE</button>
-    <ng-content></ng-content>
+    <div class="box">
+      <h2 class="title">Go to Mt. Everest Base Camp with Mike Posner</h2>
+      <ng-content></ng-content>
+      <button (click)="close()" class="close" type="button">CLOSE</button>
+    </div>
   `,
 })
 export class DialogComponent implements OnInit {

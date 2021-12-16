@@ -2,6 +2,7 @@
 
 :root {
   --black: #000;
+  --brand-light: #88b7e9;
   --brand-dark: #1b4078;
   --brand: #0071ce;
   --lg-gap: 4ch;
@@ -132,7 +133,8 @@ dialog {
   button.close {
     width: 100px;
     height: 40px;
-    margin-bottom: 1ch;
+    margin-top: var(--lg-gap);
+    background-color: var(--white);
     color: var(--black);
     border-radius: 4px;
     border: 1px solid var(--brand-dark);
@@ -145,8 +147,20 @@ dialog {
       content: initial;
     }
 
+    .box .title {
+      display: none;
+    }
+
     button.close {
       display: none;
+    }
+  }
+
+  &[open] {
+    .box {
+      border-radius: var(--radius);
+      background-color: var(--brand-light);
+      padding: var(--lg-gap) var(--md-gap);
     }
   }
 }
