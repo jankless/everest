@@ -31,7 +31,7 @@ import { Component, HostBinding } from "@angular/core";
         <source [src]="video.sources.mp4.src" [type]="video.sources.mp4.type" />
         {{ video.content }}
       </video>
-      <small>🏔️ Watch the video to learn more ☝️</small>
+      <!-- <small>🏔️ Watch the video to learn more ☝️</small> -->
     </dialog>
 
     <menu class="social">

@@ -8,11 +8,11 @@ import dialogPolyfill from "dialog-polyfill";
   selector: "dialog[mp]",
   template: `
     <div class="box">
-      <h2 class="title">Go to Mt. Everest Base Camp with Mike Posner</h2>
+      <!-- <h2 class="title">Go to Mt. Everest Base Camp with Mike Posner</h2> -->
       <div class="content">
         <ng-content></ng-content>
       </div>
-      <button (click)="close()" class="btn close" type="button">Close</button>
+      <button (click)="close()" class="btn close" type="button">&times;</button>
     </div>
   `,
 })
