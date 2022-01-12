@@ -39,7 +39,7 @@ video {
 p {
   font-size: 16px;
   color: var(--white);
-  margin: 0 auto;
+  margin: 1ch auto;
   max-width: 640px;
   line-height: 32px;
   text-align: center;
@@ -56,6 +56,7 @@ p {
 video {
   display: block;
   margin: 0 auto;
+  border-radius: 8px;
 }
 
 a {
@@ -122,7 +123,7 @@ dialog {
     position: absolute;
     z-index: -1;
     background-color: rgba(40, 40, 40, 0.1);
-    backdrop-filter: blur(4px) brightness(80%);
+    backdrop-filter: blur(8px) brightness(90%);
     top: 0;
     left: 0;
     width: 100%;
@@ -133,7 +134,6 @@ dialog {
   button.close {
     width: 100px;
     height: 40px;
-    margin-top: var(--lg-gap);
     background-color: var(--white);
     color: var(--black);
     border-radius: 4px;
@@ -158,9 +158,37 @@ dialog {
 
   &[open] {
     .box {
-      border-radius: var(--radius);
-      background-color: var(--brand-light);
-      padding: var(--lg-gap) var(--md-gap);
+      border-radius: 32px;
+      background-color: #fafcfd;
+      padding: 48px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+      h2 {
+        max-width: 300px;
+        margin-top: 0;
+        margin-bottom: 2rem;
+      }
+
+      .content {
+        margin-bottom: 2rem;
+      }
+
+      @media (min-width: 540px) {
+        padding: 48px 24px;
+
+        h2 {
+          max-width: 360px;
+          margin-top: 1rem;
+          margin-bottom: 3rem;
+        }
+
+        .content {
+          margin-bottom: 3rem;
+        }
+      }
     }
   }
 }

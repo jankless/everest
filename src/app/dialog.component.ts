@@ -9,8 +9,10 @@ import dialogPolyfill from "dialog-polyfill";
   template: `
     <div class="box">
       <h2 class="title">Go to Mt. Everest Base Camp with Mike Posner</h2>
-      <ng-content></ng-content>
-      <button (click)="close()" class="close" type="button">CLOSE</button>
+      <div class="content">
+        <ng-content></ng-content>
+      </div>
+      <button (click)="close()" class="btn close" type="button">Close</button>
     </div>
   `,
 })

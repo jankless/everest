@@ -14,14 +14,11 @@ import { Component, HostBinding } from "@angular/core";
       />
     </picture>
 
-    <p>
-      <ng-container *ngFor="let c of p.content">
-        <span>
-          {{ c }}
-        </span>
-        <br />
-      </ng-container>
-    </p>
+    <ng-container *ngFor="let c of p.content">
+      <p>
+        {{ c }}
+      </p>
+    </ng-container>
 
     <a class="apply" [href]="a.href" [target]="a.target">{{ a.content }}</a>
 
@@ -34,6 +31,7 @@ import { Component, HostBinding } from "@angular/core";
         <source [src]="video.sources.mp4.src" [type]="video.sources.mp4.type" />
         {{ video.content }}
       </video>
+      <small>🏔️ Watch the video to learn more ☝️</small>
     </dialog>
 
     <menu class="social">
@@ -69,9 +67,8 @@ export class AppComponent {
     },
     p: {
       content: [
-        "Trek to the base camp of Mt. Everest, ",
-        "the world’s highest mountain, personally guided ",
-        "by me and my coach Dr. Jon Kedrowski.",
+        "Embark on a 10-12 day trek to the base camp of Mt. Everest, personally guided by Mike Posner and Dr. Jon Kedrowski.",
+        "To be clear, this is not a climb to summit Mt. Everest. This is a trek to Everest Basecamp (17,500 ft of elevation)",
       ],
     },
     video: {
