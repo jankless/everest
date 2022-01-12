@@ -132,9 +132,9 @@ dialog {
   }
 
   button.close {
-    // position: absolute;
-    // bottom: -50px;
-    // right: 0px;
+    position: absolute;
+    top: -16px;
+    right: -16px;
     width: 40px;
     height: 40px;
     background-color: var(--white);
@@ -142,8 +142,8 @@ dialog {
     border-radius: 50%;
     border: 1px solid var(--brand-dark);
     font-size: 32px;
-    margin: 4px;
-    margin-left: auto;
+    // margin: 4px;
+    // margin-left: auto;
   }
 
   &:not([open]) {
@@ -183,9 +183,9 @@ dialog {
         margin-bottom: 2rem;
       }
 
-      .content {
-        padding: 4px;
-      }
+      // .content {
+      //   padding: 4px;
+      // }
 
       @media (min-width: 540px) {
         // padding: 48px 24px;
