@@ -154,6 +154,10 @@ dialog {
     button.close {
       display: none;
     }
+
+    .content small {
+      color: white;
+    }
   }
 
   &[open] {
