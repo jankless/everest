@@ -119,6 +119,7 @@ export class AppComponent {
       },
     },
   };
+
   get seo() {
     return this.pageData.seo;
   }
