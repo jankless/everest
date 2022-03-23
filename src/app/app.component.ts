@@ -123,7 +123,6 @@ export class AppComponent {
   get seo() {
     return this.pageData.seo;
   }
-
   get img() {
     return this.pageData.img;
   }
