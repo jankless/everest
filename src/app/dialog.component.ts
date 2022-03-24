@@ -23,6 +23,11 @@ export class DialogComponent implements OnInit {
   private windowClicks = fromEvent(this.document, "click").pipe(
     filter(({ target }) => (target as any).nodeName === this.name)
   );
+  private get video(): HTMLMediaElement {
+    return Array.from(
+      this.el.nativeElement.querySelectorAll("video")
+    )[0] as HTMLMediaElement;
+  }
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -33,10 +38,12 @@ export class DialogComponent implements OnInit {
     dialogPolyfill.registerDialog(this.el.nativeElement);
     this.destroy.push(this.windowClicks.subscribe(this.close.bind(this)));
     this.document.body.style.overflow = "hidden";
+    this.video.volume = 0.6;
   }
 
   close() {
     this.open = false;
+    this.video.pause();
     this.document.body.style.overflow = "initial";
   }
 

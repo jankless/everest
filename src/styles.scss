@@ -62,7 +62,7 @@ video {
 a {
   border-radius: var(--radius);
   border: var(--stroke) solid var(--white);
-  transition: background-color ease 250;
+  transition: background-color ease 250ms;
 
   &.apply {
     color: var(--white);
